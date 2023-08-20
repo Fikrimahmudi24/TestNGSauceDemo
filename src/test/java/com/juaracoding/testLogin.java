@@ -95,7 +95,19 @@ public class testLogin {
     }
 
     @Test(priority = 6)
-    public void validDanNegatifBiodataTest(){
+    public void negatifBiodataTest(){
+        biodataPage.biodata("", "", "");
+        String actual = biodataPage.getTxtNegativeBiodata();
+        DriverSingleton.delay(5);
+        String expected = "Error: First Name is required";
+        Assert.assertEquals(actual, expected);
+        System.out.println("Assert Negatif Biodata");
+        System.out.println(actual + " = " + expected);
+        System.out.println("--------------------");
+    }
+    
+    @Test(priority = 6)
+    public void validBiodataTest(){
         biodataPage.biodata("fikri", "mahmudi", "22325");
         String actual = biodataPage.getTxtBiodata();
         String expected = "Checkout: Overview";
