@@ -25,6 +25,8 @@ public class BiodataPage {
     WebElement btnContinue;
     @FindBy(xpath = "//span[@class='title']")
     WebElement txtBiodata;
+    @FindBy(xpath = "//h3[@data-test='error']")
+    WebElement txtNegativeBiodata;
 
     //Method Biodata Chekout
     public void biodata(String namaPertama, String namaAkhir, String kodePos){
@@ -34,8 +36,12 @@ public class BiodataPage {
         btnContinue.click();
     }
 
-    //Scraping Text Biodata
+    //Scraping Text Negative dan Positive Biodata
     public String getTxtBiodata(){
         return txtBiodata.getText();
+    }
+
+    public String getTxtNegativeBiodata(){
+        return txtNegativeBiodata.getText();
     }
 }
